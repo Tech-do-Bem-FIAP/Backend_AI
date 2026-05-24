@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            -t tech-do-bem-backend-ai:${{ github.sha }} \
+            -t tech-do-bem-backend-ai:latest \
+            .
+
+      - name: Stop old container
+        run: docker stop tech-do-bem-backend-ai || true
+
+      - name: Remove old container
+        run: docker rm tech-do-bem-backend-ai || true
+
+      - name: Run new container
+        run: |
+          docker run -d \
+            --name tech-do-bem-backend-ai \
+            --restart always \
+            -p 127.0.0.1:5001:5001 \
+            tech-do-bem-backend-ai:latest
