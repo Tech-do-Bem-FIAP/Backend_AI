@@ -1,0 +1,77 @@
+{
+  "modelo_escolhido": "logistic_regression",
+  "versao": "logistic_regression-v1",
+  "accuracy": 0.6390243902439025,
+  "f1_macro": 0.6311072209771554,
+  "f1_macro_cv": {
+    "random_forest": {
+      "f1_macro_cv_mean": 0.5674316092366638,
+      "f1_macro_cv_std": 0.018218579430091947
+    },
+    "xgboost": {
+      "f1_macro_cv_mean": 0.537219808688792,
+      "f1_macro_cv_std": 0.026566973195512503
+    },
+    "logistic_regression": {
+      "f1_macro_cv_mean": 0.5865561896285612,
+      "f1_macro_cv_std": 0.023609975865093103
+    }
+  },
+  "confusion_matrix": [
+    [
+      102,
+      10,
+      25
+    ],
+    [
+      12,
+      101,
+      24
+    ],
+    [
+      38,
+      39,
+      59
+    ]
+  ],
+  "classes": [
+    "Alta",
+    "Baixa",
+    "Media"
+  ],
+  "feature_importances_top5": [
+    {
+      "feature": "idh",
+      "importance": 0.6324259928444295
+    },
+    {
+      "feature": "pct_exames_pendentes",
+      "importance": 0.33997157232863345
+    },
+    {
+      "feature": "dist_ubs_km",
+      "importance": 0.3311751635909408
+    },
+    {
+      "feature": "densidade_pop",
+      "importance": 0.2057227046447435
+    },
+    {
+      "feature": "historico_atendimentos",
+      "importance": 0.06769169968682882
+    }
+  ],
+  "n_treino": 1640,
+  "n_teste": 410,
+  "features": [
+    "densidade_pop",
+    "idh",
+    "dist_ubs_km",
+    "historico_atendimentos",
+    "pct_exames_pendentes",
+    "populacao_infantil_pct",
+    "dia_semana_cadastro"
+  ],
+  "xgboost_disponivel": true,
+  "data_treino": "2026-05-24T16:21:59.064019+00:00"
+}
